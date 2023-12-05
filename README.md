@@ -103,13 +103,13 @@ If these directives are not sufficient, the validation logic can also be placed 
 
 ### Todos
 
-Follow the guide in the wiki: https://github.com/IT-REX-Platform/wiki/blob/main/dev-manuals/backend/new-service.md
+Follow the guide in the wiki: https://github.com/MEITREX/wiki/blob/main/dev-manuals/backend/new-service.md
 
 Addtionally, after cloning the repository, you need to do the following steps:
 - [ ] Setup the gradle files correctly. This means
   - [ ] Change the project name in the `settings.gradle` file
   - [ ] Change the package name in the `build.gradle` file (there is a TODO comment)
-  - [ ] Change the sonar project key in the `build.gradle` file (should be IT-REX-Platform_repository_name)
+  - [ ] Change the sonar project key in the `build.gradle` file (should be MEITREX_repository_name)
   - [ ] Add/Remove dependencies in the `build.gradle` file
 - [ ] Rename the package in the `src/main/java` folder to  a more suitable name (should be the same as the package name in the `build.gradle` file)
 - [ ] Remove the package-info.java files in the `src/main/java` folder (or update with the microservice specific information)
@@ -127,7 +127,7 @@ After creating a new service you need to do the following:
 
 If this template changes and you want to pull the changes to the actual microservice, you can run the following commands:
 ```bash
-git remote add template https://github.com/IT-REX-Platform/template-microservice # only necessary once
+git remote add template https://github.com/MEITREX/template_microservice # only necessary once
 git fetch --all
 git checkout [branch] # replace [branch] with the branch name you want the changes to be merged into (preferably not main)
 git merge template/main --allow-unrelated-histories
