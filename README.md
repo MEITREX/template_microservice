@@ -29,16 +29,19 @@ This package should contain any classes that are used to configure the applicati
 The classes that are in this package should not be deleted in the actual microservice as they provide useful functionality.
 
 ### Controller package
-**Location:src/main/java/de/unistuttgart/iste/gits/{service_name}/controller**
+
+**Location:src/main/java/de/unistuttgart/iste/meitrex/{service_name}/controller**
 
 This package contains the GraphQL controllers (and other types of controllers if needed). The GraphQL controllers are annotated with the `@Controller` annotation. Controllers contain no business logic, but only delegate the requests to the service layer. They handle the "technical stuff" of the request.
 
 In some services, there is also a class called SubscriptionController which handles all dapr event subscriptions.
 
-More information can be found in the [Controller package](src/main/java/de/unistuttgart/iste/gits/template/controller/package-info.java).
+More information can be found in
+the [Controller package](src/main/java/de/unistuttgart/iste/meitrex/template/controller/package-info.java).
 
 ### Dapr package
-**Location**:src/main/java/de/unistuttgart/iste/gits/{service_name}/dapr
+
+**Location**:src/main/java/de/unistuttgart/iste/meitrex/{service_name}/dapr
 
 This package should contain all classes that are used to communicate with Dapr, e.g. using pub sub.
 
@@ -55,14 +58,17 @@ If not necessary, no other files should be added manually to this package.
 The DTOs are used to transfer data between the GraphQL controller and the service layer. The entities are used to persist data in the database. This is done to separate the data transfer from the data persistence. This is a common approach in Spring Boot applications as it can happen that we want to store more data in the database than we want to transfer to the client or vice versa.
 
 ### Exception package
-**Location**:src/main/java/de/unistuttgart/iste/gits/{service_name}/exception
+
+**Location**:src/main/java/de/unistuttgart/iste/meitrex/{service_name}/exception
 
 This package is used for exception handling. Note that with GraphQL, the exceptions are not thrown directly, but are wrapped in a `GraphQLException`, which is different that from the usual Spring Boot approach.
 
-More information can be found in the [Exception package](src/main/java/de/unistuttgart/iste/gits/template/exception/package-info.java).
+More information can be found in
+the [Exception package](src/main/java/de/unistuttgart/iste/meitrex/template/exception/package-info.java).
 
 ### Persistence package
-**Location**:src/main/java/de/unistuttgart/iste/gits/{service_name}/persistence
+
+**Location**:src/main/java/de/unistuttgart/iste/meitrex/{service_name}/persistence
 
 This package contains all classes that are used to persist data in the database. This includes the entities, the mapping
 logic between entities and DTOs, as well as the repositories.
@@ -81,18 +87,21 @@ The 'mapper' package is responsible for the mapping logic between the database e
 This structure helps organize the database-related components of the project, making it easier to manage and maintain.
 
 More information can be found in
-the [Entity package](src/main/java/de/unistuttgart/iste/gits/template/persistence/entity/package-info.java) and
-the [Repository package](src/main/java/de/unistuttgart/iste/gits/template/persistence/repository/package-info.java).
+the [Entity package](src/main/java/de/unistuttgart/iste/meitrex/template/persistence/entity/package-info.java) and
+the [Repository package](src/main/java/de/unistuttgart/iste/meitrex/template/persistence/repository/package-info.java).
 
 ### Service package
-**Location**:src/main/java/de/unistuttgart/iste/gits/{service_name}/service
+
+**Location**:src/main/java/de/unistuttgart/iste/meitrex/{service_name}/service
 
 This package contains all classes that are used to handle the business logic of the microservice. Services are annotated with the `@Service` annotation. Services contain only business logic and delegate the data access to the persistence layer (repositories). 
 
-More information can be found in the [Service package](src/main/java/de/unistuttgart/iste/gits/template/service/package-info.java).
+More information can be found in
+the [Service package](src/main/java/de/unistuttgart/iste/meitrex/template/service/package-info.java).
 
 ### Validation package
-**Location**:src/main/java/de/unistuttgart/iste/gits/{service_name}/validation
+
+**Location**:src/main/java/de/unistuttgart/iste/meitrex/{service_name}/validation
 
 This package should contain the *class-level* validation logic, i.e. the validation logic that is not directly related to a specific field, e.g. validation if an end date is after a start date.
 
