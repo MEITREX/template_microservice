@@ -48,23 +48,27 @@ tasks.register("fetchAllExternalSchemas", Task) {
 
 // Automatically generate DTOs from GraphQL schema:
 graphqlCodegen {
-	// all config options:
-	// https://github.com/kobylynskyi/graphql-java-codegen/blob/main/docs/codegen-options.md
-	outputDir = new File("$buildDir/generated")
-	packageName = "de.unistuttgart.iste.meitrex.generated.dto"
-	generatedAnnotation = "jakarta.annotation.Generated"
-	modelValidationAnnotation = "jakarta.validation.constraints.NotNull"
-	generateApis = false // set to false as the generator does not support spring boot graphQL
-	customTypesMapping = [
-			"DateTime" : "java.time.OffsetDateTime",
-			"Date"     : "java.time.LocalDate",
-			"Time"     : "java.time.OffsetTime",
-			"LocalTime": "java.time.LocalTime",
-			"UUID"     : "java.util.UUID",
-			"Url"      : "java.net.URL",
-	]
-	generateEqualsAndHashCode = true
-	generateToString = true
+    // all config options:
+    // https://github.com/kobylynskyi/graphql-java-codegen/blob/main/docs/codegen-options.md
+    graphqlSchemas {
+        rootDir = file("src/main/resources/graphql/service")
+    }
+    outputDir = new File("$buildDir/generated")
+    packageName = "de.unistuttgart.iste.meitrex.generated.dto"
+    generatedAnnotation = "jakarta.annotation.Generated"
+    modelValidationAnnotation = "jakarta.validation.constraints.NotNull"
+    generateApis = false // set to false as the generator does not support spring boot graphQL
+    customTypesMapping = [
+            "DateTime" : "java.time.OffsetDateTime",
+            "Date"     : "java.time.LocalDate",
+            "Time"     : "java.time.OffsetTime",
+            "LocalTime": "java.time.LocalTime",
+            "UUID"     : "java.util.UUID",
+            "Url"      : "java.net.URL",
+    ]
+    generateEqualsAndHashCode = true
+    generateToString = true
+    fieldsWithResolvers = ["@OnDemand"]
 }
 
 // Automatically generate GraphQL code on project build:
