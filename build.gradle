@@ -73,6 +73,14 @@ graphqlCodegen {
     fieldsWithResolvers = ["@OnDemand"]
 }
 
+tasks.register('generateApiDocs', Exec) {
+    commandLine 'cmd', '/c', 'generate_api_doc.bat'
+}
+
+tasks.named('assemble') {
+    finalizedBy('generateApiDocs')
+}
+
 // Automatically generate GraphQL code on project build:
 compileJava.dependsOn 'graphqlCodegen'
 

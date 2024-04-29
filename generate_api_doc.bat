@@ -1,15 +1,13 @@
 @echo off
 echo Generating API documentation...
 echo This requires npm to be installed!
-echo This requires the service to be running
-
-REM TODO: change the port and title
 
 REM clear old docs
 del api.md
+REM Delete the combined file
+del combined.graphql
 
-set port=1001
-set title=Template API
+set title=Scrum Game API
 
 REM install graphql-markdown if not installed
 if not exist node_modules\graphql-markdown (
@@ -17,4 +15,14 @@ if not exist node_modules\graphql-markdown (
    npm install graphql-markdown
 )
 
-npx graphql-markdown "http://localhost:%port%/graphql" --title "%title%" > api.md
+REM Concatenate all graphql files into one
+for /r src\main\resources\graphql %%i in (*.graphqls) do type "%%i" >> combined.graphql
+
+REM Run npx in a separate cmd instance
+cmd /c npx graphql-markdown combined.graphql --title "%title%" > api.md
+
+REM wait for user input
+echo API documentation generated.
+
+REM Delete the combined file
+del combined.graphql
