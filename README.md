@@ -117,11 +117,10 @@ Follow the guide in the wiki: https://github.com/MEITREX/wiki/blob/main/dev-manu
 Addtionally, after cloning the repository, you need to do the following steps:
 - [ ] Setup the gradle files correctly. This means
   - [ ] Change the project name in the `settings.gradle` file
-  - [ ] Change the package name in the `build.gradle` file (there is a TODO comment)
   - [ ] Change the sonar project key in the `build.gradle` file (should be MEITREX_repository_name)
   - [ ] Add/Remove dependencies in the `build.gradle` file
-- [ ] Rename the package in the `src/main/java` folder to  a more suitable name (should be the same as the package name in the `build.gradle` file)
-- [ ] Remove the package-info.java files in the `src/main/java` folder (or update with the microservice specific information)
+- [ ] Rename the package in the `src/main/java` folder to  a more suitable name (should be the service name)
+- [ ] Remove the package-info.java files in the `src/main/java` folder, if the file is present (or update with the microservice specific information)
 - [ ] Update the application.properties file in the `src/main/resources` folder (check the TODOS in the file)
 - [ ] Change the ports and name of the database in the docker-compose.yml (see wiki on how to)
 - [ ] Define the GraphQL schema in the `src/main/resources/schema.graphqls` file
